@@ -244,8 +244,8 @@
   .biz-media .slider-dots{ position:absolute; bottom:12px; left:50%; transform:translateX(-50%); display:flex; gap:8px; z-index:2; }
   .biz-media .dot{ width:8px; height:8px; border-radius:50%; border:none; background:rgba(255,255,255,.55); cursor:pointer; padding:0; transition:background .3s, width .3s; }
   .biz-media .dot.active{ background:#fff; width:22px; border-radius:4px; }
-  .biz-media .compare{ position:relative; width:100%; height:100%; overflow:hidden; touch-action:none; cursor:ew-resize; --pos:50%; }
-  .biz-media .compare>img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; display:block; }
+  .biz-media .compare{ position:relative; width:100%; height:100%; overflow:hidden; touch-action:none; cursor:ew-resize; user-select:none; -webkit-user-select:none; --pos:50%; }
+  .biz-media .compare>img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; display:block; pointer-events:none; user-select:none; -webkit-user-drag:none; -webkit-touch-callout:none; }
   .biz-media .cmp-before{ clip-path:inset(0 calc(100% - var(--pos)) 0 0); }
   .biz-media .cmp-line{ position:absolute; top:0; bottom:0; left:var(--pos); width:3px; background:#fff; transform:translateX(-50%); box-shadow:0 0 10px rgba(0,0,0,.5); z-index:3; pointer-events:none; }
   .biz-media .cmp-handle{ position:absolute; top:50%; left:var(--pos); transform:translate(-50%,-50%); width:42px; height:42px; border-radius:50%; background:#fff; color:var(--akane); display:flex; align-items:center; justify-content:center; font-size:18px; font-weight:900; box-shadow:0 2px 12px rgba(0,0,0,.4); z-index:4; pointer-events:none; }
@@ -280,7 +280,8 @@
   .lm h2{ font-weight:900; font-size:clamp(1.7rem,4.5vw,2.8rem); line-height:1.4; margin-bottom:22px; }
   .lm h2 .red{ color:#ff5560; }
   .lm p{ color:rgba(255,255,255,.78); line-height:2; font-size:15px; }
-  .lm-media{ aspect-ratio:4/3; border-radius:16px; overflow:hidden; }
+  .lm-media{ aspect-ratio:4/3; border-radius:16px; overflow:hidden; background:rgba(255,255,255,.05); }
+  .lm-media video{ width:100%; height:100%; object-fit:cover; display:block; }
   @media (max-width:768px){ .lm-grid{ grid-template-columns:1fr; } }
 
   /* =================== FLOW =================== */
@@ -624,8 +625,8 @@
     <div class="biz-item reveal">
       <div class="biz-media">
         <div class="compare" data-compare>
-          <img class="cmp-after" src="assets/naming2.jpg" alt="ネーミングライツ後（琉球ガラス村）">
-          <img class="cmp-before" src="assets/naming1.jpg" alt="ネーミングライツ前（波平入口）">
+          <img class="cmp-after" draggable="false" src="assets/naming2.jpg" alt="ネーミングライツ後（琉球ガラス村）">
+          <img class="cmp-before" draggable="false" src="assets/naming1.jpg" alt="ネーミングライツ前（波平入口）">
           <span class="cmp-tag before">BEFORE</span>
           <span class="cmp-tag after">AFTER</span>
           <div class="cmp-line"></div>
@@ -686,7 +687,11 @@
       <h2 class="reveal rd1">予算をかけられるなら、<br><span class="red">街ごと、御社色に。</span></h2>
       <p class="reveal rd2">フルラッピングは、ただの認知では終わりません。毎日、街じゅうで圧倒的な存在感を放ち、「知っている」を「選ぶ」へ。購買や来店という行動を後押しする"ラストワンマイル"の追撃広告として活用できます。</p>
     </div>
-    <div class="lm-media reveal rd1"><div class="ph video dark"><span class="lbl">フルラッピングバス<br>インパクト動画／写真</span><span class="sub">FULL WRAP</span></div></div>
+    <div class="lm-media reveal rd1">
+      <video class="lm-video" autoplay muted loop playsinline>
+        <source src="assets/lastmile.mp4" type="video/mp4">
+      </video>
+    </div>
   </div>
 </section>
 
@@ -960,6 +965,7 @@
     function dn(e){on=true;set((e.touches?e.touches[0]:e).clientX);}
     function mv(e){if(!on)return;set((e.touches?e.touches[0]:e).clientX);if(e.cancelable)e.preventDefault();}
     function up(){on=false;}
+    c.addEventListener('dragstart',function(e){e.preventDefault();});
     c.addEventListener('mousedown',dn);window.addEventListener('mousemove',mv);window.addEventListener('mouseup',up);
     c.addEventListener('touchstart',dn,{passive:true});c.addEventListener('touchmove',mv,{passive:false});window.addEventListener('touchend',up);
   });

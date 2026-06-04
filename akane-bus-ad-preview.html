@@ -184,15 +184,32 @@
   /* =================== AREA =================== */
   .area{ background:var(--mist); }
   .area-grid{ display:grid; grid-template-columns:1fr 1fr; gap:clamp(28px,5vw,60px); align-items:start; }
-  .zone{ display:flex; gap:16px; padding:20px 0; border-bottom:1px solid var(--line); }
+  .zone{ display:flex; gap:16px; padding:18px 14px; margin:0 -14px; border-bottom:1px solid var(--line); cursor:pointer; border-radius:10px; transition:background .25s; }
+  .zone:hover, .zone.active{ background:rgba(215,0,15,.05); }
+  .zone.active .zn{ color:var(--akane-deep); }
   .zone .zn{ flex-shrink:0; font-family:'Anton'; font-size:1.8rem; color:var(--akane); line-height:1; width:42px; }
   .zone h4{ font-weight:900; font-size:1.05rem; margin-bottom:5px; }
   .zone p{ color:var(--soft); font-size:13.5px; line-height:1.8; }
+  /* AREA インタラクティブ地図 */
+  .area-map{ position:sticky; top:96px; align-self:start; }
+  .area-map .map-wrap{ position:relative; border:1px solid var(--line); border-radius:16px; background:var(--mist); padding:14px; }
+  .area-map svg{ width:100%; height:auto; display:block; max-height:520px; }
+  .area-map .island{ fill:#e4e4e7; stroke:#cdcdd3; stroke-width:1.5; }
+  .area-map .lbl-fixed{ fill:#9a9aa0; font-size:12px; font-weight:800; font-family:'Noto Sans JP',sans-serif; }
+  .area-map .hl{ opacity:0; transition:opacity .35s ease; }
+  .area-map .hl.on{ opacity:1; }
+  .area-map .hl-line{ fill:none; stroke:var(--akane); stroke-width:8; stroke-linecap:round; stroke-linejoin:round; }
+  .area-map .hl-dot{ fill:var(--akane); }
+  .area-map .hl-ring{ fill:none; stroke:var(--akane); stroke-width:2.5; opacity:.45; }
+  .area-map .hl-fill{ fill:var(--akane); fill-opacity:.82; }
+  .area-map .map-cap{ margin-top:12px; text-align:center; font-weight:900; font-size:14px; color:var(--ink); min-height:1.3em; }
+  .area-map .map-cap.hint{ color:#9a9aa0; font-weight:700; font-size:12px; }
+  .area-map .price-note{ margin-top:14px; }
   .maps{ display:flex; flex-direction:column; gap:18px; }
   .map-ph{ border-radius:14px; overflow:hidden; border:1px solid var(--line); aspect-ratio:4/3; }
   .maps .row2{ display:grid; grid-template-columns:1fr 1fr; gap:18px; }
   .maps .row2 .map-ph{ aspect-ratio:3/4; }
-  @media (max-width:768px){ .area-grid{ grid-template-columns:1fr; } }
+  @media (max-width:768px){ .area-grid{ grid-template-columns:1fr; } .area-map{ order:-1; position:sticky; top:60px; margin-bottom:8px; } .area-map svg{ max-height:300px; } }
 
   .ph{ width:100%; height:100%; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:8px; text-align:center; padding:18px;
        background:repeating-linear-gradient(135deg,#ececee 0 16px,#e4e4e7 16px 32px); border:1px dashed rgba(215,0,15,.35); color:var(--akane-deep); }
@@ -500,18 +517,28 @@
     <h2 class="sec-title reveal rd1" style="text-align:center;margin-bottom:48px;">届けたい人がいる場所で、選ぶ。</h2>
     <div class="area-grid">
       <div>
-        <div class="zone reveal"><div class="zn">01</div><div><h4>那覇〜中部路線</h4><p>那覇・浦添・宜野湾・沖縄・うるま＝人口約78.6万人。本島の約6割が暮らす巨大マーケット。</p></div></div>
-        <div class="zone reveal rd1"><div class="zn">02</div><div><h4>那覇市中心地区</h4><p>行政・ビジネス・商業が集まるエリア。通勤通学の利用が多く、330号は学生の利用も多数。</p></div></div>
-        <div class="zone reveal rd1"><div class="zn">03</div><div><h4>西海岸沿い・国道58号</h4><p>沖縄の大動脈。地元客に加え、主要観光地へ向かう観光客・レンタカーにも届く。</p></div></div>
-        <div class="zone reveal rd2"><div class="zn">04</div><div><h4>南部エリア</h4><p>住宅地に加え、玉泉洞・斎場御嶽・平和祈念公園など観光地も点在。生活＋観光の両面。</p></div></div>
-        <div class="zone reveal rd2"><div class="zn">05</div><div><h4>国際通り</h4><p>修学旅行生・観光客が集まる。教育・お土産・観光客向けPRに向いたエリア。</p></div></div>
+        <div class="zone reveal" data-zone="z1"><div class="zn">01</div><div><h4>那覇〜中部路線</h4><p>那覇・浦添・宜野湾・沖縄・うるま＝人口約78.6万人。本島の約6割が暮らす巨大マーケット。</p></div></div>
+        <div class="zone reveal rd1" data-zone="z2"><div class="zn">02</div><div><h4>那覇市中心地区</h4><p>行政・ビジネス・商業が集まるエリア。通勤通学の利用が多く、330号は学生の利用も多数。</p></div></div>
+        <div class="zone reveal rd1" data-zone="z3"><div class="zn">03</div><div><h4>西海岸沿い・国道58号</h4><p>沖縄の大動脈。地元客に加え、主要観光地へ向かう観光客・レンタカーにも届く。</p></div></div>
+        <div class="zone reveal rd2" data-zone="z4"><div class="zn">04</div><div><h4>南部エリア</h4><p>住宅地に加え、玉泉洞・斎場御嶽・平和祈念公園など観光地も点在。生活＋観光の両面。</p></div></div>
+        <div class="zone reveal rd2" data-zone="z5"><div class="zn">05</div><div><h4>国際通り</h4><p>修学旅行生・観光客が集まる。教育・お土産・観光客向けPRに向いたエリア。</p></div></div>
       </div>
-      <div class="maps reveal rd1">
-        <div class="map-ph"><div class="ph"><span class="ico">🗺️</span><span class="lbl">那覇市内線 運行系統表</span><span class="sub">ROUTE MAP 01</span></div></div>
-        <div class="row2">
-          <div class="map-ph"><div class="ph"><span class="ico">🗺️</span><span class="lbl">那覇〜中部<br>路線図</span><span class="sub">MAP 02</span></div></div>
-          <div class="map-ph"><div class="ph"><span class="ico">🗺️</span><span class="lbl">那覇〜南部<br>路線図</span><span class="sub">MAP 03</span></div></div>
+      <div class="area-map reveal rd1">
+        <div class="map-wrap">
+        <svg viewBox="0 0 360 600" xmlns="http://www.w3.org/2000/svg" aria-label="沖縄本島エリア地図" role="img">
+        <defs><clipPath id="islandClip"><path d="M 185.0 552.0 Q 176.0 560.0 158.0 546.0 Q 140.0 532.0 129.0 518.5 Q 118.0 505.0 112.0 491.5 Q 106.0 478.0 109.0 465.0 Q 112.0 452.0 117.0 438.0 Q 122.0 424.0 120.0 411.0 Q 118.0 398.0 122.0 385.0 Q 126.0 372.0 121.0 359.0 Q 116.0 346.0 121.0 332.0 Q 126.0 318.0 136.0 305.0 Q 146.0 292.0 148.0 279.0 Q 150.0 266.0 160.0 251.0 Q 170.0 236.0 179.0 224.0 Q 188.0 212.0 197.0 198.0 Q 206.0 184.0 218.0 170.0 Q 230.0 156.0 243.0 141.0 Q 256.0 126.0 269.0 112.0 Q 282.0 98.0 291.0 89.0 Q 300.0 80.0 307.0 82.0 Q 314.0 84.0 316.0 98.0 Q 318.0 112.0 310.0 127.0 Q 302.0 142.0 293.0 157.0 Q 284.0 172.0 275.0 184.0 Q 266.0 196.0 261.0 211.0 Q 256.0 226.0 257.0 241.0 Q 258.0 256.0 253.0 271.0 Q 248.0 286.0 251.0 301.0 Q 254.0 316.0 250.0 330.0 Q 246.0 344.0 237.0 355.0 Q 228.0 366.0 218.0 375.0 Q 208.0 384.0 202.0 397.0 Q 196.0 410.0 193.0 423.0 Q 190.0 436.0 195.0 449.0 Q 200.0 462.0 208.0 476.0 Q 216.0 490.0 213.0 504.0 Q 210.0 518.0 202.0 531.0 Q 194.0 544.0 185.0 552.0 Z"/></clipPath></defs>
+        <path class="island" d="M 185.0 552.0 Q 176.0 560.0 158.0 546.0 Q 140.0 532.0 129.0 518.5 Q 118.0 505.0 112.0 491.5 Q 106.0 478.0 109.0 465.0 Q 112.0 452.0 117.0 438.0 Q 122.0 424.0 120.0 411.0 Q 118.0 398.0 122.0 385.0 Q 126.0 372.0 121.0 359.0 Q 116.0 346.0 121.0 332.0 Q 126.0 318.0 136.0 305.0 Q 146.0 292.0 148.0 279.0 Q 150.0 266.0 160.0 251.0 Q 170.0 236.0 179.0 224.0 Q 188.0 212.0 197.0 198.0 Q 206.0 184.0 218.0 170.0 Q 230.0 156.0 243.0 141.0 Q 256.0 126.0 269.0 112.0 Q 282.0 98.0 291.0 89.0 Q 300.0 80.0 307.0 82.0 Q 314.0 84.0 316.0 98.0 Q 318.0 112.0 310.0 127.0 Q 302.0 142.0 293.0 157.0 Q 284.0 172.0 275.0 184.0 Q 266.0 196.0 261.0 211.0 Q 256.0 226.0 257.0 241.0 Q 258.0 256.0 253.0 271.0 Q 248.0 286.0 251.0 301.0 Q 254.0 316.0 250.0 330.0 Q 246.0 344.0 237.0 355.0 Q 228.0 366.0 218.0 375.0 Q 208.0 384.0 202.0 397.0 Q 196.0 410.0 193.0 423.0 Q 190.0 436.0 195.0 449.0 Q 200.0 462.0 208.0 476.0 Q 216.0 490.0 213.0 504.0 Q 210.0 518.0 202.0 531.0 Q 194.0 544.0 185.0 552.0 Z"/>
+        <text class="lbl-fixed" x="58" y="476">那覇</text>
+        <text class="lbl-fixed" x="172" y="332">中部</text>
+        <text class="lbl-fixed" x="296" y="150">北部</text>
+        <g id="z1" class="hl"><path class="hl-line" d="M 120.0 470.0 Q 126.0 432.0 131.0 417.0 Q 136.0 402.0 149.0 391.0 Q 162.0 380.0 187.0 366.0 L 212.0 352.0"/><circle class="hl-dot" cx="120" cy="470" r="6"/><circle class="hl-dot" cx="212" cy="352" r="6"/></g>
+        <g id="z2" class="hl"><circle class="hl-ring" cx="120" cy="470" r="24"/><circle class="hl-dot" cx="120" cy="470" r="9"/></g>
+        <g id="z3" class="hl"><path class="hl-line" d="M 120.0 470.0 Q 124.0 440.0 124.0 424.0 Q 124.0 408.0 125.5 392.0 Q 127.0 376.0 131.0 358.0 Q 135.0 340.0 143.0 320.0 Q 151.0 300.0 162.0 278.0 Q 173.0 256.0 186.5 236.0 L 200.0 216.0"/></g>
+        <g id="z4" class="hl"><path class="hl-fill" clip-path="url(#islandClip)" d="M 121.0 477.0 Q 110.0 476.0 115.0 490.5 Q 120.0 505.0 135.0 521.5 Q 150.0 538.0 163.0 547.0 Q 176.0 556.0 191.0 538.0 Q 206.0 520.0 202.0 502.0 Q 198.0 484.0 179.0 485.0 Q 160.0 486.0 146.0 482.0 Q 132.0 478.0 121.0 477.0 Z"/></g>
+        <g id="z5" class="hl"><circle class="hl-ring" cx="133" cy="460" r="17"/><circle class="hl-dot" cx="133" cy="460" r="7"/></g>
+      </svg>
         </div>
+        <div class="map-cap" id="mapCap">那覇〜中部路線</div>
         <p class="price-note">対応バス会社：琉球バス交通／沖縄バス／那覇バス／東陽バス（路線により対応会社が異なります）</p>
       </div>
     </div>
@@ -845,6 +872,28 @@
     });
     return false;
   }
+</script>
+<script>
+(function(){
+  var caps={z1:'那覇〜中部路線',z2:'那覇市中心地区',z3:'西海岸沿い・国道58号',z4:'南部エリア',z5:'国際通り'};
+  var cap=document.getElementById('mapCap');
+  var zones=document.querySelectorAll('.zone[data-zone]');
+  function setActive(z){
+    document.querySelectorAll('.area-map .hl').forEach(function(e){e.classList.remove('on');});
+    zones.forEach(function(e){e.classList.remove('active');});
+    var el=document.getElementById(z); if(el) el.classList.add('on');
+    if(cap) cap.textContent=caps[z]||'';
+    var zn=document.querySelector('.zone[data-zone="'+z+'"]'); if(zn) zn.classList.add('active');
+  }
+  zones.forEach(function(zn){
+    var z=zn.getAttribute('data-zone');
+    zn.addEventListener('mouseenter',function(){setActive(z);});
+    zn.addEventListener('click',function(){setActive(z);});
+  });
+  var grid=document.querySelector('.area-grid');
+  if(grid) grid.addEventListener('mouseleave',function(){setActive('z1');});
+  setActive('z1');
+})();
 </script>
 </body>
 </html>

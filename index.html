@@ -238,6 +238,19 @@
   .biz-item:last-child{ border-bottom:1px solid rgba(255,255,255,.12); }
   .biz-item.flip .biz-media{ order:2; } .biz-item.flip .biz-body{ order:1; }
   .biz-media{ aspect-ratio:4/3; border-radius:14px; overflow:hidden; }
+  .biz-media .slider{ position:relative; width:100%; height:100%; }
+  .biz-media .slide{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:0; transition:opacity .8s ease; }
+  .biz-media .slide.active{ opacity:1; }
+  .biz-media .slider-dots{ position:absolute; bottom:12px; left:50%; transform:translateX(-50%); display:flex; gap:8px; z-index:2; }
+  .biz-media .dot{ width:8px; height:8px; border-radius:50%; border:none; background:rgba(255,255,255,.55); cursor:pointer; padding:0; transition:background .3s, width .3s; }
+  .biz-media .dot.active{ background:#fff; width:22px; border-radius:4px; }
+  .biz-media .compare{ position:relative; width:100%; height:100%; overflow:hidden; touch-action:none; cursor:ew-resize; --pos:50%; }
+  .biz-media .compare>img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; display:block; }
+  .biz-media .cmp-before{ clip-path:inset(0 calc(100% - var(--pos)) 0 0); }
+  .biz-media .cmp-line{ position:absolute; top:0; bottom:0; left:var(--pos); width:3px; background:#fff; transform:translateX(-50%); box-shadow:0 0 10px rgba(0,0,0,.5); z-index:3; pointer-events:none; }
+  .biz-media .cmp-handle{ position:absolute; top:50%; left:var(--pos); transform:translate(-50%,-50%); width:42px; height:42px; border-radius:50%; background:#fff; color:var(--akane); display:flex; align-items:center; justify-content:center; font-size:18px; font-weight:900; box-shadow:0 2px 12px rgba(0,0,0,.4); z-index:4; pointer-events:none; }
+  .biz-media .cmp-tag{ position:absolute; top:12px; z-index:4; font-size:11px; font-weight:800; letter-spacing:.06em; color:#fff; background:rgba(0,0,0,.55); padding:5px 10px; border-radius:6px; pointer-events:none; }
+  .biz-media .cmp-tag.before{ left:12px; } .biz-media .cmp-tag.after{ right:12px; }
   .biz-num{ font-family:'Anton'; font-size:clamp(3rem,7vw,5.5rem); color:transparent; -webkit-text-stroke:2px var(--akane); line-height:.9; }
   .biz-en{ font-family:'Archivo'; font-weight:800; letter-spacing:.22em; font-size:12px; color:var(--akane); margin:14px 0 10px; }
   .biz-jp{ font-weight:900; font-size:clamp(1.4rem,3vw,2rem); margin-bottom:16px; }
@@ -577,7 +590,13 @@
     <h2 class="sec-title reveal rd1" style="margin-bottom:20px;">3つの届け方から、選べる。</h2>
 
     <div class="biz-item reveal">
-      <div class="biz-media"><div class="ph dark"><span class="ico">🪧</span><span class="lbl">看板・ステッカー 掲出写真</span><span class="sub">SIGNAGE PHOTO</span></div></div>
+      <div class="biz-media">
+        <div class="slider" data-slider>
+          <img class="slide active" src="assets/signage1.jpg" alt="看板・ステッカー掲出例（大城架設）">
+          <img class="slide" src="assets/signage2.jpg" alt="看板・ステッカー掲出例（は〜もに〜）">
+          <div class="slider-dots"><button class="dot active" data-i="0" aria-label="1枚目"></button><button class="dot" data-i="1" aria-label="2枚目"></button></div>
+        </div>
+      </div>
       <div class="biz-body">
         <div class="biz-num">01</div><div class="biz-en">SIGNAGE &amp; STICKER</div>
         <h3 class="biz-jp">看板・ステッカー</h3>
@@ -587,7 +606,13 @@
     </div>
 
     <div class="biz-item flip reveal">
-      <div class="biz-media"><div class="ph dark"><span class="ico">🎨</span><span class="lbl">ラッピングバス 掲出写真</span><span class="sub">WRAPPING PHOTO</span></div></div>
+      <div class="biz-media">
+        <div class="slider" data-slider>
+          <img class="slide active" src="assets/wrap1.jpg" alt="ラッピングバス掲出例（スーパー乗るだけセット）">
+          <img class="slide" src="assets/wrap2.jpg" alt="ラッピングバス掲出例（フジワーク）">
+          <div class="slider-dots"><button class="dot active" data-i="0" aria-label="1枚目"></button><button class="dot" data-i="1" aria-label="2枚目"></button></div>
+        </div>
+      </div>
       <div class="biz-body">
         <div class="biz-num">02</div><div class="biz-en">WRAPPING</div>
         <h3 class="biz-jp">ラッピング</h3>
@@ -597,7 +622,16 @@
     </div>
 
     <div class="biz-item reveal">
-      <div class="biz-media"><div class="ph dark"><span class="ico">📍</span><span class="lbl">バス停ネーミングライツ 掲出写真</span><span class="sub">NAMING RIGHTS PHOTO</span></div></div>
+      <div class="biz-media">
+        <div class="compare" data-compare>
+          <img class="cmp-after" src="assets/naming2.jpg" alt="ネーミングライツ後（琉球ガラス村）">
+          <img class="cmp-before" src="assets/naming1.jpg" alt="ネーミングライツ前（波平入口）">
+          <span class="cmp-tag before">BEFORE</span>
+          <span class="cmp-tag after">AFTER</span>
+          <div class="cmp-line"></div>
+          <div class="cmp-handle">⇄</div>
+        </div>
+      </div>
       <div class="biz-body">
         <div class="biz-num">03</div><div class="biz-en">NAMING RIGHTS</div>
         <h3 class="biz-jp">バス停ネーミングライツ</h3>
@@ -901,6 +935,34 @@
   var grid=document.querySelector('.area-grid');
   if(grid) grid.addEventListener('mouseleave',function(){setActive('z1');});
   setActive('z1');
+})();
+</script>
+<script>
+(function(){
+  document.querySelectorAll('[data-slider]').forEach(function(sl){
+    var slides=sl.querySelectorAll('.slide'), dots=sl.querySelectorAll('.dot'), i=0, t;
+    function go(n){ i=(n+slides.length)%slides.length;
+      slides.forEach(function(s,k){s.classList.toggle('active',k===i);});
+      dots.forEach(function(d,k){d.classList.toggle('active',k===i);}); }
+    function start(){ t=setInterval(function(){go(i+1);},4000); }
+    function stop(){ clearInterval(t); }
+    dots.forEach(function(d){ d.addEventListener('click',function(){ go(+d.dataset.i); stop(); start(); }); });
+    sl.addEventListener('mouseenter',stop); sl.addEventListener('mouseleave',start);
+    start();
+  });
+})();
+</script>
+<script>
+(function(){
+  document.querySelectorAll('[data-compare]').forEach(function(c){
+    var on=false;
+    function set(x){var r=c.getBoundingClientRect();var p=Math.max(0,Math.min(100,(x-r.left)/r.width*100));c.style.setProperty('--pos',p+'%');}
+    function dn(e){on=true;set((e.touches?e.touches[0]:e).clientX);}
+    function mv(e){if(!on)return;set((e.touches?e.touches[0]:e).clientX);if(e.cancelable)e.preventDefault();}
+    function up(){on=false;}
+    c.addEventListener('mousedown',dn);window.addEventListener('mousemove',mv);window.addEventListener('mouseup',up);
+    c.addEventListener('touchstart',dn,{passive:true});c.addEventListener('touchmove',mv,{passive:false});window.addEventListener('touchend',up);
+  });
 })();
 </script>
 </body>

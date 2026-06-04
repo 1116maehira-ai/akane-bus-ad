@@ -224,7 +224,8 @@
   /* =================== PLANNING =================== */
   .planning{ background:var(--paper); }
   .plan-grid{ display:grid; grid-template-columns:1fr 1fr; gap:clamp(28px,5vw,64px); align-items:center; }
-  .plan-media{ aspect-ratio:4/3; border-radius:16px; overflow:hidden; }
+  .plan-media{ aspect-ratio:4/3; border-radius:16px; overflow:hidden; background:var(--mist); }
+  .plan-media video{ width:100%; height:100%; object-fit:cover; display:block; }
   .plan ul{ list-style:none; margin-top:22px; display:flex; flex-direction:column; gap:14px; }
   .plan li{ display:flex; gap:12px; color:var(--soft); line-height:1.7; }
   .plan li .ck{ color:var(--akane); font-weight:900; flex-shrink:0; }
@@ -551,7 +552,11 @@
 <!-- =================== PLANNING =================== -->
 <section class="section planning plan">
   <div class="container plan-grid">
-    <div class="plan-media reveal"><div class="ph video"><span class="lbl">時間帯・路線プランニングの<br>イメージ動画／図版</span><span class="sub">PLANNING</span></div></div>
+    <div class="plan-media reveal">
+      <video class="plan-video" autoplay muted loop playsinline>
+        <source src="assets/planning.mp4" type="video/mp4">
+      </video>
+    </div>
     <div>
       <div class="sec-eyebrow reveal">Planning</div>
       <h2 class="sec-title reveal rd1">"ただ貼る"のではなく、<br><span style="color:var(--akane);">"設計する"。</span></h2>

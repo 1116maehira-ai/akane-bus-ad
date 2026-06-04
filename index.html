@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>路線バス広告｜御社を知らない人を、ひとりでも減らす。街を、御社色に染める。— 株式会社アカネクリエーション</title>
+<meta name="description" content="テレビCMじゃなくても、沖縄じゅうに。県内最大・約600台の路線バス広告。月1万円台から始められる、いちばん身近な広告。看板・ステッカー・ラッピング・バス停ネーミングライツまで、エリアと予算に合わせてご提案します。株式会社アカネクリエーション。">
+<meta property="og:title" content="路線バス広告｜街を、御社色に染める。— アカネクリエーション">
+<meta property="og:description" content="県内最大・約600台の路線バス広告。月1万円台から、毎日おなじ道を走る。看板からフルラッピングまで、エリアと予算に合わせてご提案。">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ja_JP">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Noto+Sans+JP:wght@400;500;700;900&family=Archivo:wght@600;700;800;900&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --akane:#d7000f; --akane-deep:#b00010; --akane-dark:#8a000c;
+    --ink:#111113; --ink2:#1c1c20; --paper:#ffffff; --mist:#f4f4f5; --line:#e6e6e8;
+    --soft:#55555a;
+  }
+  *{ margin:0; padding:0; box-sizing:border-box; }
+  html{ scroll-behavior:smooth; }
+  body{ font-family:'Noto Sans JP',sans-serif; color:var(--ink); background:var(--paper); -webkit-font-smoothing:antialiased; overflow-x:hidden; }
+  a{ text-decoration:none; color:inherit; }
+
+  .display{ font-family:'Anton',sans-serif; font-weight:400; letter-spacing:.01em; line-height:.92; }
+  .eyebrow{ font-family:'Archivo',sans-serif; font-weight:800; letter-spacing:.32em; text-transform:uppercase; }
+  .container{ max-width:1180px; margin:0 auto; }
+
+  /* =================== ナビ =================== */
+  .nav{
+    position:fixed; top:0; left:0; right:0; z-index:100;
+    display:flex; align-items:center; justify-content:space-between;
+    padding:18px 32px; transition:background .4s ease, box-shadow .4s ease, padding .4s ease;
+  }
+  .nav .brand-text{ display:flex; align-items:center; gap:10px; font-family:'Archivo',sans-serif; font-weight:900; letter-spacing:.14em; font-size:15px; color:#fff; transition:opacity .3s; }
+  .nav .brand-text .mark{ width:28px; height:28px; border:2px solid #fff; border-radius:50%; display:flex; align-items:center; justify-content:center; font-family:'Anton'; font-size:15px; }
+  .nav .brand-logo{ height:34px; opacity:0; transition:opacity .3s; position:absolute; left:32px; }
+  .nav .links{ display:flex; align-items:center; gap:26px; font-size:12px; font-family:'Archivo'; font-weight:700; letter-spacing:.16em; }
+  .nav .links a{ color:#fff; opacity:.85; transition:color .3s,opacity .2s; }
+  .nav .links a:hover{ opacity:1; }
+  .nav .cta{
+    display:inline-flex; align-items:center; gap:8px; padding:11px 22px; border-radius:999px;
+    background:var(--akane); color:#fff !important; font-family:'Noto Sans JP'; font-weight:900; letter-spacing:.04em; font-size:13px; opacity:1 !important;
+    box-shadow:0 4px 16px rgba(215,0,15,.35); transition:transform .3s,background .3s;
+  }
+  .nav .cta:hover{ transform:translateY(-1px); background:var(--akane-deep); }
+  .nav.scrolled{ background:rgba(255,255,255,.95); backdrop-filter:blur(12px); box-shadow:0 1px 0 var(--line); padding:12px 32px; }
+  .nav.scrolled .brand-text{ opacity:0; pointer-events:none; }
+  .nav.scrolled .brand-logo{ opacity:1; }
+  .nav.scrolled .links a{ color:var(--soft); }
+  .nav.scrolled .links a:hover{ color:var(--akane); }
+  @media (max-width:860px){ .nav .links a:not(.cta){ display:none; } .nav{ padding:14px 18px; } .nav.scrolled{ padding:10px 18px; } .nav .brand-logo{ left:18px; height:30px; } }
+
+  /* =================== HERO =================== */
+  .hero{ position:relative; height:100vh; min-height:620px; overflow:hidden; background:#000; }
+  .hero-media{
+    position:absolute; inset:-8% -4%; z-index:1; will-change:transform;
+    background:
+      radial-gradient(120% 90% at 75% 12%, rgba(215,0,15,.55) 0%, transparent 55%),
+      radial-gradient(100% 80% at 12% 92%, rgba(40,40,60,.9) 0%, transparent 60%),
+      linear-gradient(115deg,#1a1416 0%,#2a1015 40%,#120d12 100%);
+    animation:ambientZoom 22s ease-in-out infinite alternate;
+  }
+  .hero-media::before{ content:''; position:absolute; inset:0; mix-blend-mode:screen;
+    background:repeating-linear-gradient(108deg, transparent 0 38px, rgba(255,255,255,.025) 38px 40px),
+              repeating-linear-gradient(108deg, transparent 0 180px, rgba(215,0,15,.10) 180px 184px); }
+  .hero-media .bus-ghost{ position:absolute; bottom:8%; left:50%; transform:translateX(-50%); font-size:min(34vw,360px); opacity:.16; filter:grayscale(1); }
+  @keyframes ambientZoom{ from{ transform:scale(1); } to{ transform:scale(1.12); } }
+  .hero-overlay{ position:absolute; inset:0; z-index:2; background:linear-gradient(180deg, rgba(0,0,0,.4) 0%, rgba(0,0,0,.15) 42%, rgba(0,0,0,.6) 100%); }
+  .media-note{ position:absolute; z-index:3; top:84px; left:32px; display:inline-flex; align-items:center; gap:8px; background:rgba(255,255,255,.1); backdrop-filter:blur(6px); border:1px dashed rgba(255,255,255,.4); color:#fff; padding:8px 14px; border-radius:999px; font-size:11px; font-weight:700; }
+  @media (max-width:768px){ .media-note{ top:68px; left:18px; font-size:10px; } }
+  .hero-text{ position:absolute; inset:0; z-index:4; display:flex; flex-direction:column; justify-content:center; padding:0 32px; will-change:transform,opacity; }
+  .hero-text .jp-over{ color:#fff; font-size:13px; font-weight:700; letter-spacing:.18em; margin-bottom:22px; opacity:.9; }
+  .hero-text .jp-over span{ color:var(--akane); font-family:'Archivo'; letter-spacing:.2em; }
+  .hero-display{ color:#fff; font-size:clamp(3.4rem,15vw,13rem); text-shadow:0 6px 40px rgba(0,0,0,.4); }
+  .hero-display .red{ color:var(--akane); }
+  .hero-copy{ color:#fff; margin-top:30px; max-width:560px; font-size:clamp(15px,2.4vw,19px); font-weight:500; line-height:1.9; text-shadow:0 2px 16px rgba(0,0,0,.5); }
+  .hero-copy b{ font-weight:900; }
+  .scroll-ind{ position:absolute; z-index:5; bottom:28px; left:50%; transform:translateX(-50%); display:flex; flex-direction:column; align-items:center; gap:8px; color:#fff; font-family:'Archivo'; font-size:10px; font-weight:700; letter-spacing:.3em; }
+  .scroll-ind .bar{ width:1px; height:46px; background:rgba(255,255,255,.5); position:relative; overflow:hidden; }
+  .scroll-ind .bar::after{ content:''; position:absolute; top:-46px; left:0; width:100%; height:46px; background:#fff; animation:scrollDown 2s cubic-bezier(.7,0,.3,1) infinite; }
+  @keyframes scrollDown{ 0%{ top:-46px; } 60%,100%{ top:46px; } }
+
+  /* =================== SECTION 共通 =================== */
+  .section{ padding:clamp(80px,12vw,160px) 32px; position:relative; }
+  .sec-eyebrow{ display:flex; align-items:center; gap:14px; color:var(--akane); font-family:'Archivo'; font-weight:800; letter-spacing:.32em; text-transform:uppercase; font-size:12px; margin-bottom:18px; }
+  .sec-eyebrow::before{ content:''; width:40px; height:2px; background:var(--akane); }
+  .sec-eyebrow.center{ justify-content:center; }
+  .sec-title{ font-weight:900; font-size:clamp(1.7rem,4.5vw,3rem); line-height:1.35; letter-spacing:-.01em; }
+
+  /* =================== ABOUT =================== */
+  .about{ position:relative; background:var(--paper); overflow:hidden; }
+  .about-media{ position:absolute; inset:0; z-index:0; will-change:transform;
+    background:radial-gradient(120% 100% at 70% 20%, rgba(215,0,15,.18) 0%, transparent 55%), linear-gradient(120deg,#cfcfd4,#e9e9ec 50%,#d6d6da); }
+  .about-media::after{ content:''; position:absolute; inset:0; background:rgba(255,255,255,.9); }
+  .about-media .note{ position:absolute; top:18px; right:22px; font-size:10px; color:#9a9aa0; font-weight:700; letter-spacing:.05em; background:rgba(255,255,255,.6); border:1px dashed #c9c9cf; padding:5px 10px; border-radius:999px; z-index:1; }
+  .about .inner{ position:relative; z-index:2; }
+  .about .big-en{ font-family:'Anton'; font-size:clamp(4rem,18vw,13rem); line-height:.85; color:rgba(17,17,19,.05); }
+  .about .statement{ font-weight:900; font-size:clamp(1.5rem,4vw,2.6rem); line-height:1.6; letter-spacing:-.01em; margin:-2vw 0 30px; }
+  .about .statement .red{ color:var(--akane); }
+  .about .lead{ max-width:640px; color:var(--soft); font-size:clamp(14px,1.8vw,16px); line-height:2.1; }
+
+  /* =================== NUMBERS =================== */
+  .numbers{ background:var(--mist); }
+  .num-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:24px; margin-top:20px; }
+  .num-item{ text-align:center; }
+  .num-item .v{ font-family:'Anton'; font-size:clamp(2.6rem,6vw,4.6rem); color:var(--akane); line-height:1; }
+  .num-item .v .u{ font-size:.45em; color:var(--ink); }
+  .num-item .l{ font-size:13px; font-weight:700; color:var(--soft); margin-top:10px; line-height:1.5; }
+  @media (max-width:768px){ .num-grid{ grid-template-columns:repeat(2,1fr); gap:36px 16px; } }
+
+  /* =================== THREE LAYERS =================== */
+  .layers{ background:var(--paper); }
+  .layer-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:22px; margin-bottom:28px; }
+  .layer{ border:1px solid var(--line); border-radius:14px; padding:34px; transition:border-color .3s, transform .3s; }
+  .layer:hover{ border-color:rgba(215,0,15,.35); transform:translateY(-4px); }
+  .layer .n{ font-family:'Anton'; font-size:2.4rem; color:transparent; -webkit-text-stroke:1.5px var(--akane); line-height:1; }
+  .layer h3{ font-weight:900; font-size:1.25rem; margin:14px 0 10px; }
+  .layer p{ color:var(--soft); font-size:14px; line-height:1.95; }
+  .voice-search{ background:linear-gradient(135deg,var(--akane),var(--akane-deep)); color:#fff; border-radius:18px; padding:clamp(28px,5vw,48px); display:flex; align-items:center; gap:32px; }
+  .voice-search .big{ font-size:clamp(2.4rem,6vw,3.6rem); flex-shrink:0; }
+  .voice-search h3{ font-weight:900; font-size:clamp(1.3rem,3vw,1.9rem); margin-bottom:12px; }
+  .voice-search p{ color:rgba(255,255,255,.9); line-height:1.9; font-size:15px; }
+  @media (max-width:768px){ .layer-grid{ grid-template-columns:1fr; } .voice-search{ flex-direction:column; text-align:center; gap:18px; } }
+
+  /* =================== AREA =================== */
+  .area{ background:var(--mist); }
+  .area-grid{ display:grid; grid-template-columns:1fr 1fr; gap:clamp(28px,5vw,60px); align-items:start; }
+  .zone{ display:flex; gap:16px; padding:20px 0; border-bottom:1px solid var(--line); }
+  .zone .zn{ flex-shrink:0; font-family:'Anton'; font-size:1.8rem; color:var(--akane); line-height:1; width:42px; }
+  .zone h4{ font-weight:900; font-size:1.05rem; margin-bottom:5px; }
+  .zone p{ color:var(--soft); font-size:13.5px; line-height:1.8; }
+  .maps{ display:flex; flex-direction:column; gap:18px; }
+  .map-ph{ border-radius:14px; overflow:hidden; border:1px solid var(--line); aspect-ratio:4/3; }
+  .maps .row2{ display:grid; grid-template-columns:1fr 1fr; gap:18px; }
+  .maps .row2 .map-ph{ aspect-ratio:3/4; }
+  @media (max-width:768px){ .area-grid{ grid-template-columns:1fr; } }
+
+  .ph{ width:100%; height:100%; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:8px; text-align:center; padding:18px;
+       background:repeating-linear-gradient(135deg,#ececee 0 16px,#e4e4e7 16px 32px); border:1px dashed rgba(215,0,15,.35); color:var(--akane-deep); }
+  .ph .ico{ font-size:34px; opacity:.65; }
+  .ph .lbl{ font-size:12px; font-weight:800; line-height:1.4; }
+  .ph .sub{ font-family:'Archivo'; font-size:10px; letter-spacing:.08em; opacity:.6; }
+  .ph.dark{ background:repeating-linear-gradient(135deg,#262329 0 16px,#201d23 16px 32px); border-color:rgba(255,136,146,.35); color:#ff8a92; }
+  .ph.video::before{ content:'▶'; font-size:30px; margin-bottom:4px; }
+
+  /* =================== PLANNING =================== */
+  .planning{ background:var(--paper); }
+  .plan-grid{ display:grid; grid-template-columns:1fr 1fr; gap:clamp(28px,5vw,64px); align-items:center; }
+  .plan-media{ aspect-ratio:4/3; border-radius:16px; overflow:hidden; }
+  .plan ul{ list-style:none; margin-top:22px; display:flex; flex-direction:column; gap:14px; }
+  .plan li{ display:flex; gap:12px; color:var(--soft); line-height:1.7; }
+  .plan li .ck{ color:var(--akane); font-weight:900; flex-shrink:0; }
+  @media (max-width:768px){ .plan-grid{ grid-template-columns:1fr; } .plan-media{ order:-1; } }
+
+  /* =================== MENU（ジグザグ） =================== */
+  .business{ background:var(--ink); color:#fff; }
+  .business .sec-title{ color:#fff; }
+  .biz-item{ display:grid; grid-template-columns:1fr 1fr; gap:clamp(28px,5vw,72px); align-items:center; padding:clamp(40px,6vw,72px) 0; border-top:1px solid rgba(255,255,255,.12); }
+  .biz-item:last-child{ border-bottom:1px solid rgba(255,255,255,.12); }
+  .biz-item.flip .biz-media{ order:2; } .biz-item.flip .biz-body{ order:1; }
+  .biz-media{ aspect-ratio:4/3; border-radius:14px; overflow:hidden; }
+  .biz-num{ font-family:'Anton'; font-size:clamp(3rem,7vw,5.5rem); color:transparent; -webkit-text-stroke:2px var(--akane); line-height:.9; }
+  .biz-en{ font-family:'Archivo'; font-weight:800; letter-spacing:.22em; font-size:12px; color:var(--akane); margin:14px 0 10px; }
+  .biz-jp{ font-weight:900; font-size:clamp(1.4rem,3vw,2rem); margin-bottom:16px; }
+  .biz-desc{ color:rgba(255,255,255,.72); line-height:2; font-size:14px; max-width:440px; }
+  .biz-price{ margin-top:18px; font-family:'Archivo'; font-weight:800; color:#fff; font-size:14px; letter-spacing:.04em; }
+  .biz-price b{ color:var(--akane); font-size:1.15em; }
+  @media (max-width:768px){ .biz-item{ grid-template-columns:1fr; gap:20px; } .biz-item.flip .biz-media{ order:0; } .biz-item.flip .biz-body{ order:0; } }
+
+  /* =================== PRICE =================== */
+  .price{ background:var(--paper); }
+  .price-block{ margin-bottom:40px; }
+  .price-block h3{ display:flex; align-items:center; gap:12px; font-weight:900; font-size:1.2rem; margin-bottom:16px; }
+  .price-block h3::before{ content:''; width:8px; height:24px; background:var(--akane); border-radius:2px; }
+  .ptable{ border:1px solid var(--line); border-radius:14px; overflow:hidden; }
+  .prow{ display:grid; grid-template-columns:1.6fr 1fr 1.1fr; align-items:center; padding:15px 20px; border-top:1px solid #f0f0f1; }
+  .prow:first-child{ border-top:none; }
+  .prow.head{ background:var(--ink); color:#fff; font-weight:700; font-size:12px; font-family:'Archivo'; letter-spacing:.08em; }
+  .prow .nm{ font-weight:700; }
+  .prow .sz{ font-size:13px; color:var(--soft); }
+  .prow .pr{ font-family:'Archivo'; font-weight:800; color:var(--akane); text-align:right; }
+  .price-note{ font-size:12px; color:#9a9aa0; line-height:1.9; }
+  @media (max-width:768px){ .prow{ grid-template-columns:1.4fr 1fr; } .prow .sz{ display:none; } }
+
+  /* =================== LAST ONE MILE =================== */
+  .lastmile{ background:var(--ink2); color:#fff; position:relative; overflow:hidden; }
+  .lm-grid{ display:grid; grid-template-columns:1fr 1fr; gap:clamp(28px,5vw,64px); align-items:center; }
+  .lm h2{ font-weight:900; font-size:clamp(1.7rem,4.5vw,2.8rem); line-height:1.4; margin-bottom:22px; }
+  .lm h2 .red{ color:#ff5560; }
+  .lm p{ color:rgba(255,255,255,.78); line-height:2; font-size:15px; }
+  .lm-media{ aspect-ratio:4/3; border-radius:16px; overflow:hidden; }
+  @media (max-width:768px){ .lm-grid{ grid-template-columns:1fr; } }
+
+  /* =================== FLOW =================== */
+  .flow-sec{ background:var(--mist); }
+  .flow{ display:grid; grid-template-columns:repeat(7,1fr); position:relative; }
+  .flow-line{ position:absolute; top:26px; left:7%; right:7%; height:3px; background:linear-gradient(90deg,#f4c4c7,var(--akane)); z-index:0; }
+  .fstep{ position:relative; z-index:1; text-align:center; padding:0 6px; }
+  .fdot{ width:52px; height:52px; border-radius:50%; background:#fff; border:3px solid var(--akane); color:var(--akane); font-family:'Anton'; display:flex; align-items:center; justify-content:center; margin:0 auto 12px; }
+  .fstep.on .fdot{ background:var(--akane); color:#fff; }
+  .fstep .t{ font-size:13px; font-weight:700; }
+  .fstep .d{ font-size:11px; color:#9a9aa0; margin-top:3px; }
+  @media (max-width:768px){ .flow{ grid-template-columns:repeat(2,1fr); gap:26px 8px; } .flow-line{ display:none; } }
+
+  /* =================== PHILOSOPHY =================== */
+  .philo{ background:linear-gradient(140deg,var(--akane),var(--akane-deep)); color:#fff; text-align:center; }
+  .philo .cup{ font-size:clamp(3.4rem,8vw,5rem); margin-bottom:26px; }
+  .philo h2{ font-weight:900; font-size:clamp(1.7rem,4.5vw,3rem); line-height:1.5; margin-bottom:34px; }
+  .philo .lines{ display:flex; flex-direction:column; gap:16px; max-width:680px; margin:0 auto; font-size:clamp(15px,2.2vw,19px); line-height:1.9; color:rgba(255,255,255,.92); }
+  .philo .lines .big{ font-weight:900; font-size:clamp(1.3rem,3.2vw,2rem); color:#fff; line-height:1.5; padding:6px 0; }
+  .philo .close{ margin-top:38px; color:rgba(255,255,255,.85); }
+  .philo .close b{ color:#fff; }
+
+  /* =================== TOTAL AGENCY =================== */
+  .agency{ background:var(--paper); text-align:center; }
+  .agency h2{ font-weight:900; font-size:clamp(1.7rem,4.5vw,3rem); line-height:1.4; margin-bottom:24px; }
+  .agency .lead{ color:var(--soft); line-height:2; max-width:640px; margin:0 auto 44px; font-size:clamp(14px,1.8vw,16px); }
+  .agency .mark-line{ background:linear-gradient(transparent 58%, rgba(215,0,15,.18) 58%); font-weight:900; }
+  .agency-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:18px; }
+  .ag-card{ border:1px solid var(--line); border-radius:14px; padding:28px 16px; transition:border-color .3s,transform .3s; }
+  .ag-card:hover{ border-color:rgba(215,0,15,.35); transform:translateY(-3px); }
+  .ag-card .ico{ font-size:1.9rem; margin-bottom:12px; }
+  .ag-card .t{ font-weight:900; font-size:14px; }
+  .agency .punch{ margin-top:40px; font-family:'Noto Sans JP'; font-weight:900; font-size:clamp(1.2rem,3vw,1.7rem); }
+  .agency .punch .red{ color:var(--akane); }
+  @media (max-width:768px){ .agency-grid{ grid-template-columns:repeat(2,1fr); } }
+
+  /* =================== VOICE =================== */
+  .voice-sec{ background:var(--mist); }
+  .vgrid{ display:grid; grid-template-columns:1fr 1fr; gap:20px; }
+  .vcard{ background:#fff; border:1px solid var(--line); border-radius:16px; padding:30px; position:relative; transition:transform .3s,border-color .3s; }
+  .vcard:hover{ transform:translateY(-3px); border-color:rgba(215,0,15,.3); }
+  .vcard::before{ content:'\201C'; font-family:'Anton'; position:absolute; top:8px; right:22px; font-size:60px; color:rgba(215,0,15,.12); line-height:1; }
+  .vcard p{ font-size:17px; line-height:1.7; margin-bottom:14px; position:relative; z-index:1; }
+  .vcard .who{ font-size:13px; font-weight:700; color:#9a9aa0; }
+  @media (max-width:768px){ .vgrid{ grid-template-columns:1fr; } }
+
+  /* =================== CONTACT =================== */
+  .contact{ background:var(--ink); color:#fff; }
+  .contact .head{ text-align:center; margin-bottom:36px; }
+  .contact .head h2{ font-weight:900; font-size:clamp(1.9rem,5vw,3rem); margin-bottom:14px; }
+  .contact .head h2 .red{ color:#ff5560; }
+  .contact .head p{ color:rgba(255,255,255,.72); line-height:1.9; }
+  .form-card{ background:#fff; color:var(--ink); border-radius:22px; padding:clamp(26px,4vw,44px); max-width:680px; margin:0 auto; }
+  .field{ margin-bottom:20px; }
+  .field label{ display:block; font-size:13px; font-weight:800; margin-bottom:8px; }
+  .field label .req{ color:var(--akane); }
+  .field input, .field select, .field textarea{ width:100%; padding:13px 15px; border:2px solid var(--line); border-radius:12px; font-family:inherit; font-size:15px; transition:border-color .2s; background:#fff; }
+  .field input:focus, .field select:focus, .field textarea:focus{ outline:none; border-color:var(--akane); }
+  .field.two{ display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+  .submit-btn{ width:100%; display:inline-flex; align-items:center; justify-content:center; gap:10px; padding:17px; border:none; border-radius:999px; background:var(--akane); color:#fff; font-family:'Noto Sans JP'; font-weight:900; font-size:17px; cursor:pointer; box-shadow:0 8px 24px rgba(215,0,15,.4); transition:transform .2s,background .2s; }
+  .submit-btn:hover:not(:disabled){ transform:scale(1.02); background:var(--akane-deep); }
+  .submit-btn:disabled{ opacity:.6; cursor:not-allowed; }
+  .form-msg{ display:none; text-align:center; padding:18px; border-radius:12px; font-weight:800; margin-top:18px; font-size:14px; }
+  .tel-box{ max-width:680px; margin:30px auto 0; text-align:center; }
+  .tel-inner{ display:inline-flex; flex-direction:column; align-items:center; gap:4px; background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.15); border-radius:18px; padding:20px 36px; }
+  .tel-inner .lbl{ font-size:12px; color:rgba(255,255,255,.6); font-weight:700; }
+  .tel-inner .num{ font-family:'Anton'; font-size:1.8rem; color:rgba(255,255,255,.5); }
+  .tel-inner .note{ font-size:11px; color:rgba(255,255,255,.5); }
+  @media (max-width:768px){ .field.two{ grid-template-columns:1fr; } }
+
+  /* =================== マーキー =================== */
+  .marquee{ background:var(--akane); color:#fff; padding:20px 0; overflow:hidden; white-space:nowrap; }
+  .marquee-track{ display:inline-block; animation:marquee 26s linear infinite; }
+  .marquee-track span{ font-family:'Anton'; font-size:clamp(1.5rem,4vw,2.4rem); letter-spacing:.04em; margin:0 26px; }
+  .marquee-track span .dot{ color:rgba(255,255,255,.5); }
+  @keyframes marquee{ from{ transform:translateX(0); } to{ transform:translateX(-50%); } }
+
+  /* =================== FOOTER =================== */
+  .footer{ background:#0c0c0e; color:#fff; padding:64px 32px 36px; }
+  .footer .top{ display:grid; grid-template-columns:1.4fr 1fr; gap:40px; margin-bottom:38px; }
+  .footer .logo-wrap{ background:#fff; display:inline-block; padding:12px 16px; border-radius:10px; margin-bottom:16px; }
+  .footer .logo-wrap img{ height:34px; display:block; }
+  .footer .desc{ color:rgba(255,255,255,.6); font-size:14px; line-height:1.9; max-width:420px; }
+  .footer .co-h{ font-family:'Archivo'; font-size:11px; font-weight:800; letter-spacing:.2em; color:rgba(255,255,255,.4); margin-bottom:14px; }
+  .footer .co{ color:rgba(255,255,255,.8); font-size:14px; line-height:2; }
+  .footer .bottom{ padding-top:26px; border-top:1px solid rgba(255,255,255,.1); display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px; font-family:'Archivo'; font-size:11px; letter-spacing:.06em; color:rgba(255,255,255,.4); }
+  @media (max-width:768px){ .footer .top{ grid-template-columns:1fr; gap:28px; } }
+
+  /* =================== リビール =================== */
+  .reveal{ opacity:0; transform:translateY(34px); transition:opacity 1s cubic-bezier(.2,.7,.2,1), transform 1s cubic-bezier(.2,.7,.2,1); }
+  .reveal.in{ opacity:1; transform:translateY(0); }
+  .rd1{ transition-delay:.12s; } .rd2{ transition-delay:.24s; } .rd3{ transition-delay:.36s; }
+</style>
+</head>
+<body>
+
+<!-- =================== ナビ =================== -->
+<nav class="nav" id="nav">
+  <div class="brand-text"><span class="mark">A</span> AKANE CREATION</div>
+  <img src="assets/logo.jpg" alt="株式会社アカネクリエーション" class="brand-logo">
+  <div class="links">
+    <a href="#about">ABOUT</a>
+    <a href="#numbers">DATA</a>
+    <a href="#menu">MENU</a>
+    <a href="#price">PRICE</a>
+    <a href="#flow">FLOW</a>
+    <a href="#contact" class="cta">お問い合わせ
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+    </a>
+  </div>
+</nav>
+
+<!-- =================== HERO =================== -->
+<header class="hero" id="hero">
+  <div class="hero-media" id="heroMedia"><div class="bus-ghost">🚌</div></div>
+  <div class="hero-overlay"></div>
+  <div class="media-note">▶ ここに動画／大判写真（走るバス）が入ります</div>
+  <div class="hero-text" id="heroText">
+    <div class="jp-over">沖縄県内最大の交通広告　<span>AKANE CREATION</span></div>
+    <h1 class="hero-display">PAINT<br>THE <span class="red">CITY</span></h1>
+    <p class="hero-copy">
+      御社を知らない人を、<b>ひとりでも減らす。</b><br>
+      街を、御社色に染める。<br>
+      <span style="opacity:.8;">県内最大・約600台が、毎日おなじ道を走る広告。</span>
+    </p>
+  </div>
+  <div class="scroll-ind"><span>SCROLL</span><span class="bar"></span></div>
+</header>
+
+<!-- =================== ABOUT =================== -->
+<section class="section about" id="about">
+  <div class="about-media" id="aboutMedia"><span class="note">▶ 背景にうっすら動画（走るバス）が入ります</span></div>
+  <div class="container inner">
+    <div class="sec-eyebrow reveal">About</div>
+    <div class="big-en reveal rd1">EVERY ROUTE,<br>EVERY DAY.</div>
+    <p class="statement reveal rd1">走るほどに、<span class="red">覚えられていく。</span></p>
+    <p class="lead reveal rd2">
+      テレビCMじゃなくても、沖縄じゅうに。<br>
+      路線は、人の生活圏そのもの。通勤も、通学も、買い物も——<br>
+      毎日おなじ道で見かけるうちに、御社の名前は少しずつ染み込んでいきます。<br><br>
+      月1万円台から始められる、いちばん身近な広告。<br>
+      「知らない人を、ひとりでも減らす」その一歩を、約600台のバスが運びます。
+    </p>
+  </div>
+</section>
+
+<!-- =================== NUMBERS =================== -->
+<section class="section numbers" id="numbers">
+  <div class="container">
+    <div class="sec-eyebrow center reveal">By The Numbers</div>
+    <h2 class="sec-title reveal rd1" style="text-align:center;">路線は、生活圏。だから、刷り込める。</h2>
+    <div class="num-grid">
+      <div class="num-item reveal"><div class="v">約600<span class="u">台</span></div><div class="l">県内を走行する<br>バスの台数</div></div>
+      <div class="num-item reveal rd1"><div class="v">1,787</div><div class="l">カ所の停留所＝<br>街のランドマーク</div></div>
+      <div class="num-item reveal rd2"><div class="v">2,000<span class="u">万</span></div><div class="l">年間の<br>のべ利用者数</div></div>
+      <div class="num-item reveal rd3"><div class="v">5.8<span class="u">万</span></div><div class="l">国道58号<br>12時間の交通量</div></div>
+    </div>
+    <p class="price-note reveal" style="text-align:center;margin-top:30px;">※ 沖縄本島の路線バス4社の運行・停留所数、利用者数の目安。交通量は浦添市・国道58号の12時間計測例。</p>
+  </div>
+</section>
+
+<!-- =================== THREE LAYERS =================== -->
+<section class="section layers" id="layers">
+  <div class="container">
+    <div class="sec-eyebrow center reveal">3 Layers</div>
+    <h2 class="sec-title reveal rd1" style="text-align:center;margin-bottom:48px;">外からも、中からも、耳からも。</h2>
+    <div class="layer-grid">
+      <div class="layer reveal"><div class="n">01</div><h3>車外 ＝ 街の目</h3><p>すれ違う歩行者、後続車のドライバー。複数台を走らせれば、街じゅうで何度も見かける存在に。</p></div>
+      <div class="layer reveal rd1"><div class="n">02</div><h3>車内 ＝ 乗客の目</h3><p>通勤・通学で毎日乗る人へ。中吊り・ポスター・シート広告で、滞在時間まるごと反復効果。</p></div>
+      <div class="layer reveal rd2"><div class="n">03</div><h3>車内アナウンス ＝ 耳</h3><p>音声でも認知をつくれます。手元のスマホを見ている乗客の耳に届けば、そのまま検索へ。</p></div>
+    </div>
+    <div class="voice-search reveal">
+      <div class="big">🔊→📱→🔍</div>
+      <div>
+        <h3>「耳から入れて、指で調べてもらう」</h3>
+        <p>乗客の多くは、スマホを見ながら乗っています。耳から入った社名やサービスは、その場で検索につながりやすい。音声 × 検索を意識した動線まで設計できるのが、バス広告ならではの強みです。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =================== AREA =================== -->
+<section class="section area" id="area">
+  <div class="container">
+    <div class="sec-eyebrow center reveal">Area</div>
+    <h2 class="sec-title reveal rd1" style="text-align:center;margin-bottom:48px;">届けたい人がいる場所で、選ぶ。</h2>
+    <div class="area-grid">
+      <div>
+        <div class="zone reveal"><div class="zn">01</div><div><h4>那覇〜中部路線</h4><p>那覇・浦添・宜野湾・沖縄・うるま＝人口約78.6万人。本島の約6割が暮らす巨大マーケット。</p></div></div>
+        <div class="zone reveal rd1"><div class="zn">02</div><div><h4>那覇市中心地区</h4><p>行政・ビジネス・商業が集まるエリア。通勤通学の利用が多く、330号は学生の利用も多数。</p></div></div>
+        <div class="zone reveal rd1"><div class="zn">03</div><div><h4>西海岸沿い・国道58号</h4><p>沖縄の大動脈。地元客に加え、主要観光地へ向かう観光客・レンタカーにも届く。</p></div></div>
+        <div class="zone reveal rd2"><div class="zn">04</div><div><h4>南部エリア</h4><p>住宅地に加え、玉泉洞・斎場御嶽・平和祈念公園など観光地も点在。生活＋観光の両面。</p></div></div>
+        <div class="zone reveal rd2"><div class="zn">05</div><div><h4>国際通り</h4><p>修学旅行生・観光客が集まる。教育・お土産・観光客向けPRに向いたエリア。</p></div></div>
+      </div>
+      <div class="maps reveal rd1">
+        <div class="map-ph"><div class="ph"><span class="ico">🗺️</span><span class="lbl">那覇市内線 運行系統表</span><span class="sub">ROUTE MAP 01</span></div></div>
+        <div class="row2">
+          <div class="map-ph"><div class="ph"><span class="ico">🗺️</span><span class="lbl">那覇〜中部<br>路線図</span><span class="sub">MAP 02</span></div></div>
+          <div class="map-ph"><div class="ph"><span class="ico">🗺️</span><span class="lbl">那覇〜南部<br>路線図</span><span class="sub">MAP 03</span></div></div>
+        </div>
+        <p class="price-note">対応バス会社：琉球バス交通／沖縄バス／那覇バス／東陽バス（路線により対応会社が異なります）</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =================== PLANNING =================== -->
+<section class="section planning plan">
+  <div class="container plan-grid">
+    <div class="plan-media reveal"><div class="ph video"><span class="lbl">時間帯・路線プランニングの<br>イメージ動画／図版</span><span class="sub">PLANNING</span></div></div>
+    <div>
+      <div class="sec-eyebrow reveal">Planning</div>
+      <h2 class="sec-title reveal rd1">"ただ貼る"のではなく、<br><span style="color:var(--akane);">"設計する"。</span></h2>
+      <p class="lead reveal rd2" style="color:var(--soft);line-height:2.1;margin-top:18px;">人が集まる時間。人が分散する時間。よく通る路線、よく見られる場所。誰に・どこで・どれだけ届けたいかに合わせて、最適な配分をプランニングできます。</p>
+      <ul class="reveal rd3">
+        <li><span class="ck">✓</span>交通量・利用者数から、どれだけの人に届くかを見積もり</li>
+        <li><span class="ck">✓</span>習慣的にその路線を通る人への、刷り込み回数を最大化</li>
+        <li><span class="ck">✓</span>時間帯・エリアで配分を調整し、ムダなく認知を積み上げる</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- =================== MENU（ジグザグ） =================== -->
+<section class="section business" id="menu">
+  <div class="container">
+    <div class="sec-eyebrow reveal" style="color:#ff5560;">Menu</div>
+    <h2 class="sec-title reveal rd1" style="margin-bottom:20px;">3つの届け方から、選べる。</h2>
+
+    <div class="biz-item reveal">
+      <div class="biz-media"><div class="ph dark"><span class="ico">🪧</span><span class="lbl">看板・ステッカー 掲出写真</span><span class="sub">SIGNAGE PHOTO</span></div></div>
+      <div class="biz-body">
+        <div class="biz-num">01</div><div class="biz-en">SIGNAGE &amp; STICKER</div>
+        <h3 class="biz-jp">看板・ステッカー</h3>
+        <p class="biz-desc">外側板・後部板・後部窓ステッカーなど、露出重視で複数台に広げやすい。いちばん手に取りやすい入口メニューです。</p>
+        <div class="biz-price">月額 <b>1万円台</b> 〜</div>
+      </div>
+    </div>
+
+    <div class="biz-item flip reveal">
+      <div class="biz-media"><div class="ph dark"><span class="ico">🎨</span><span class="lbl">ラッピングバス 掲出写真</span><span class="sub">WRAPPING PHOTO</span></div></div>
+      <div class="biz-body">
+        <div class="biz-num">02</div><div class="biz-en">WRAPPING</div>
+        <h3 class="biz-jp">ラッピング</h3>
+        <p class="biz-desc">ハーフ・サイド・後部・フルまで。広いデザイン面で圧倒的なインパクトを放つ"動く広告塔"。ブランディングで街の記憶に残します。</p>
+        <div class="biz-price">月額 <b>2.5万円</b> 〜</div>
+      </div>
+    </div>
+
+    <div class="biz-item reveal">
+      <div class="biz-media"><div class="ph dark"><span class="ico">📍</span><span class="lbl">バス停ネーミングライツ 掲出写真</span><span class="sub">NAMING RIGHTS PHOTO</span></div></div>
+      <div class="biz-body">
+        <div class="biz-num">03</div><div class="biz-en">NAMING RIGHTS</div>
+        <h3 class="biz-jp">バス停ネーミングライツ</h3>
+        <p class="biz-desc">バス停に御社名を"通称名"として。標識・車内放送・検索／地図アプリまで、物理とデジタルの両方に常時露出する、公共性の高い枠です。</p>
+        <div class="biz-price">ランク制 ／ <b>要相談</b></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =================== PRICE =================== -->
+<section class="section price" id="price">
+  <div class="container" style="max-width:920px;">
+    <div class="sec-eyebrow center reveal">Price</div>
+    <h2 class="sec-title reveal rd1" style="text-align:center;margin-bottom:48px;">予算に合わせて、ちょうどいい認知を。</h2>
+
+    <div class="price-block reveal">
+      <h3>まず試す ── 看板・ステッカー</h3>
+      <div class="ptable">
+        <div class="prow head"><div>商品</div><div class="sz">サイズ目安</div><div class="pr">月額(税抜)〜</div></div>
+        <div class="prow"><div class="nm">後部窓ステッカー</div><div class="sz">w1,100×h200</div><div class="pr">¥11,400</div></div>
+        <div class="prow"><div class="nm">後部板</div><div class="sz">w600×h450</div><div class="pr">¥12,000</div></div>
+        <div class="prow"><div class="nm">小型外側板</div><div class="sz">w900×h450</div><div class="pr">¥20,000</div></div>
+        <div class="prow"><div class="nm">大型外側板</div><div class="sz">w2,400×h500</div><div class="pr">¥22,800</div></div>
+      </div>
+    </div>
+
+    <div class="price-block reveal rd1">
+      <h3>しっかり攻める ── ラッピング</h3>
+      <div class="ptable">
+        <div class="prow head"><div>商品</div><div class="sz">掲出面</div><div class="pr">月額(税抜)〜</div></div>
+        <div class="prow"><div class="nm">ワイド後部ステッカー</div><div class="sz">後部</div><div class="pr">¥25,000</div></div>
+        <div class="prow"><div class="nm">ハーフラッピング</div><div class="sz">片面の半分</div><div class="pr">¥30,000</div></div>
+        <div class="prow"><div class="nm">サイドラッピング</div><div class="sz">片面全体</div><div class="pr">¥50,000</div></div>
+        <div class="prow"><div class="nm">フルラッピング</div><div class="sz">左右＋後部</div><div class="pr">¥100,000</div></div>
+      </div>
+    </div>
+
+    <p class="price-note reveal rd2">
+      ※ 上記は最小台数・掲出料金の目安です。台数・路線・バス会社により異なります。<br>
+      ※ 別途、制作費（施工管理・出力・デザイン費）が必要です。デザイン費はお見積りとなります。<br>
+      ※ 2年目以降は、別途・維持管理費が必要です。掲出できる車両には限りがあります。
+    </p>
+  </div>
+</section>
+
+<!-- =================== LAST ONE MILE =================== -->
+<section class="section lastmile lm">
+  <div class="container lm-grid">
+    <div>
+      <div class="sec-eyebrow reveal" style="color:#ff5560;">Last One Mile</div>
+      <h2 class="reveal rd1">予算をかけられるなら、<br><span class="red">街ごと、御社色に。</span></h2>
+      <p class="reveal rd2">フルラッピングは、ただの認知では終わりません。毎日、街じゅうで圧倒的な存在感を放ち、「知っている」を「選ぶ」へ。購買や来店という行動を後押しする"ラストワンマイル"の追撃広告として活用できます。</p>
+    </div>
+    <div class="lm-media reveal rd1"><div class="ph video dark"><span class="lbl">フルラッピングバス<br>インパクト動画／写真</span><span class="sub">FULL WRAP</span></div></div>
+  </div>
+</section>
+
+<!-- =================== FLOW =================== -->
+<section class="section flow-sec" id="flow">
+  <div class="container">
+    <div class="sec-eyebrow center reveal">Flow</div>
+    <h2 class="sec-title reveal rd1" style="text-align:center;margin-bottom:54px;">掲出までの流れ</h2>
+    <div class="flow reveal">
+      <div class="flow-line"></div>
+      <div class="fstep on"><div class="fdot">1</div><div class="t">お申し込み</div></div>
+      <div class="fstep"><div class="fdot">2</div><div class="t">車両確定</div><div class="d">1〜3日</div></div>
+      <div class="fstep"><div class="fdot">3</div><div class="t">デザイン制作</div></div>
+      <div class="fstep"><div class="fdot">4</div><div class="t">審査・承認</div><div class="d">1〜2週間</div></div>
+      <div class="fstep"><div class="fdot">5</div><div class="t">出力</div><div class="d">3〜4日</div></div>
+      <div class="fstep"><div class="fdot">6</div><div class="t">施工</div></div>
+      <div class="fstep on"><div class="fdot">7</div><div class="t">運行スタート</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- =================== PHILOSOPHY（コップに水） =================== -->
+<section class="section philo">
+  <div class="container" style="max-width:760px;">
+    <div class="cup reveal">🥛</div>
+    <h2 class="reveal rd1">広告は、<br>コップに水を注ぐようなもの。</h2>
+    <div class="lines">
+      <p class="reveal rd1">直接の売上には、すぐ結びつかないかもしれません。</p>
+      <p class="reveal rd2">でも、毎日おなじ道で見かけるうちに、<br>御社の名前は、少しずつ染み込んでいきます。</p>
+      <p class="big reveal rd2">コップの水が溢れた瞬間——<br>「あ、あの会社にしよう」が生まれる。</p>
+      <p class="reveal rd3">その瞬間は、明日かもしれないし、1年後かもしれない。</p>
+      <p class="reveal rd3" style="font-weight:900;color:#fff;">でも、注がなければ、ずっと0のまま。</p>
+    </div>
+    <p class="close reveal rd3">だから私たちは、御社の認知を、<b>今日から一滴ずつ</b>積み上げます。</p>
+  </div>
+</section>
+
+<!-- =================== TOTAL AGENCY =================== -->
+<section class="section agency">
+  <div class="container">
+    <div class="sec-eyebrow center reveal">One Stop · Total Agency</div>
+    <h2 class="reveal rd1">バス広告は、入口。<br>そこから先も、まるごと。</h2>
+    <p class="lead reveal rd2">路線の選定からデザイン、施工、保守・メンテナンスまで、ぜんぶお任せ。さらにアカネクリエーションは、総合広告代理として、認知 → 検索 → 来店・購買までの<span class="mark-line">導線まるごと</span>ご提案できます。</p>
+    <div class="agency-grid">
+      <div class="ag-card reveal"><div class="ico">🛣️</div><div class="t">路線選定</div></div>
+      <div class="ag-card reveal rd1"><div class="ico">🎨</div><div class="t">デザイン制作</div></div>
+      <div class="ag-card reveal rd2"><div class="ico">🔧</div><div class="t">施工・保守</div></div>
+      <div class="ag-card reveal rd3" style="border-color:rgba(215,0,15,.4);"><div class="ico">📈</div><div class="t" style="color:var(--akane);">導線・総合提案</div></div>
+    </div>
+    <p class="punch reveal rd3">バス広告を知り尽くした、<span class="red">アカネだからできる提案</span>があります。</p>
+  </div>
+</section>
+
+<!-- =================== VOICE =================== -->
+<section class="section voice-sec">
+  <div class="container">
+    <div class="sec-eyebrow center reveal">Voice</div>
+    <h2 class="sec-title reveal rd1" style="text-align:center;margin-bottom:48px;">掲出された企業様の声</h2>
+    <div class="vgrid">
+      <div class="vcard reveal"><p>バス広告を出したエリアから、問い合わせが増えました。</p><div class="who">リフォーム業 様／中部エリア</div></div>
+      <div class="vcard reveal rd1"><p>「車内放送を聞いて来た」とお客様に言われ、効果を実感できました。</p><div class="who">クリニック 様／那覇エリア</div></div>
+      <div class="vcard reveal rd1"><p>取引先で「バス広告見たよ」と言われ、話が弾みました。</p><div class="who">士業 様／南部エリア</div></div>
+      <div class="vcard reveal rd2"><p>ホームページのアクセス数が、目に見えて増えました。</p><div class="who">小売業 様／浦添エリア</div></div>
+    </div>
+    <p class="price-note reveal" style="text-align:center;margin-top:24px;">※ 掲載企業様のプライバシー保護のため、社名は伏せて掲載しています。</p>
+  </div>
+</section>
+
+<!-- =================== CONTACT =================== -->
+<section class="section contact" id="contact">
+  <div class="container">
+    <div class="head">
+      <div class="sec-eyebrow center reveal" style="color:#ff5560;">Contact</div>
+      <h2 class="reveal rd1">まずは、<span class="red">メールから。</span></h2>
+      <p class="reveal rd2">「うちの予算でもできる？」「どの路線がいい？」——<br>どんなことでも、お気軽にご相談ください。相談だけでも大歓迎です。</p>
+    </div>
+
+    <div class="form-card reveal rd1">
+      <form id="contactForm" onsubmit="return submitForm(event)">
+        <div class="field"><label>会社名・店舗名 <span class="req">*</span></label><input type="text" name="company" required placeholder="株式会社○○"></div>
+        <div class="field two">
+          <div><label>ご担当者名 <span class="req">*</span></label><input type="text" name="name" required placeholder="山田 太郎"></div>
+          <div><label>電話番号</label><input type="tel" name="phone" placeholder="098-000-0000"></div>
+        </div>
+        <div class="field"><label>メールアドレス <span class="req">*</span></label><input type="email" name="email" required placeholder="example@company.com"></div>
+        <div class="field"><label>ご興味のある広告 <span class="req">*</span></label>
+          <select name="inquiry_type" required>
+            <option value="">選択してください</option>
+            <option value="まずは相談・診断">まずは相談したい・どれがいいか分からない</option>
+            <option value="看板・ステッカー">看板・ステッカー（月1万円台〜）</option>
+            <option value="ラッピング">ラッピング</option>
+            <option value="フルラッピング">フルラッピング</option>
+            <option value="ネーミングライツ">バス停ネーミングライツ</option>
+            <option value="資料請求">資料がほしい</option>
+            <option value="その他">その他</option>
+          </select>
+        </div>
+        <div class="field"><label>届けたいエリア・ご予算（任意）</label><input type="text" name="area_budget" placeholder="例：中部エリア中心／月3万円くらいまで など"></div>
+        <div class="field"><label>ご相談内容・ご質問（任意）</label><textarea name="message" rows="4" placeholder="広告で実現したいこと、気になっていることなど、お気軽にご記入ください"></textarea></div>
+        <button type="submit" id="submitBtn" class="submit-btn"><span id="submitBtnText">メールで問い合わせる</span>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        </button>
+        <div id="formMessage" class="form-msg"></div>
+      </form>
+    </div>
+
+    <div class="tel-box reveal rd2">
+      <div class="tel-inner">
+        <span class="lbl">お電話でのお問い合わせ</span>
+        <span class="num">準備中</span>
+        <span class="note">※ 電話番号は発番準備中です。今しばらくお待ちください。</span>
+      </div>
+    </div>
+    <p style="text-align:center;color:rgba(255,255,255,.6);font-size:13px;margin-top:24px;" class="reveal rd2">ご相談・資料請求は無料です。担当者より、最短当日〜翌営業日中にご返信いたします。</p>
+  </div>
+</section>
+
+<!-- =================== マーキー =================== -->
+<div class="marquee">
+  <div class="marquee-track">
+    <span>AKANE CREATION <span class="dot">●</span> BUS ADVERTISING <span class="dot">●</span> PAINT THE CITY <span class="dot">●</span> </span>
+    <span>AKANE CREATION <span class="dot">●</span> BUS ADVERTISING <span class="dot">●</span> PAINT THE CITY <span class="dot">●</span> </span>
+  </div>
+</div>
+
+<!-- =================== FOOTER =================== -->
+<footer class="footer">
+  <div class="container">
+    <div class="top">
+      <div>
+        <div class="logo-wrap"><img src="assets/logo.jpg" alt="株式会社アカネクリエーション"></div>
+        <p class="desc">沖縄県内最大の交通広告会社。路線バス広告を入口に、御社の「知ってもらう」を、街じゅうに。</p>
+      </div>
+      <div>
+        <div class="co-h">COMPANY</div>
+        <div class="co">株式会社アカネクリエーション<br>〒900-0004 沖縄県那覇市銘苅1-19-29<br>TEL 098-862-8280</div>
+      </div>
+    </div>
+    <div class="bottom">
+      <div>© 2026 AKANE CREATION Co.,Ltd. All rights reserved.</div>
+      <div>路線バス広告 — Transit Advertising · Okinawa</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const nav = document.getElementById('nav');
+  const heroMedia = document.getElementById('heroMedia');
+  const heroText  = document.getElementById('heroText');
+  const aboutMedia= document.getElementById('aboutMedia');
+  const hero      = document.getElementById('hero');
+
+  let ticking = false;
+  function onScroll(){
+    const y = window.scrollY;
+    const h = hero.offsetHeight;
+    const p = Math.min(y / h, 1);
+
+    if(y > h * 0.6){ nav.classList.add('scrolled'); } else { nav.classList.remove('scrolled'); }
+
+    heroMedia.style.transform = `scale(${1 + p*0.18}) translateY(${p*40}px)`;
+    heroText.style.transform = `translateY(${ -y*0.35 }px)`;
+    heroText.style.opacity = String(Math.max(1 - p*1.25, 0));
+
+    if(aboutMedia){
+      const r = aboutMedia.parentElement.getBoundingClientRect();
+      const prog = (window.innerHeight - r.top) / (window.innerHeight + r.height);
+      aboutMedia.style.transform = `scale(1.1) translateY(${ (prog-0.5) * 40 }px)`;
+    }
+    ticking = false;
+  }
+  window.addEventListener('scroll', ()=>{ if(!ticking){ requestAnimationFrame(onScroll); ticking=true; } }, { passive:true });
+  onScroll();
+
+  const io = new IntersectionObserver((es)=>{ es.forEach(e=>{ if(e.isIntersecting) e.target.classList.add('in'); }); }, { threshold:0.12, rootMargin:'0px 0px -60px 0px' });
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+  const GAS_URL = 'PASTE_YOUR_GAS_ENDPOINT_HERE';
+  function submitForm(event){
+    event.preventDefault();
+    const form=document.getElementById('contactForm'), btn=document.getElementById('submitBtn'),
+          btnT=document.getElementById('submitBtnText'), msg=document.getElementById('formMessage');
+    if(GAS_URL==='PASTE_YOUR_GAS_ENDPOINT_HERE'){
+      msg.style.cssText='display:block;background:#fff7ed;color:#b00010;border:2px solid #fdba74;';
+      msg.innerHTML='⚠️ 送信先（GASエンドポイント）が未設定です。<br><span style="font-size:12px;font-weight:500;">GAS_URL をアカネクリエーション用に差し替えてください。</span>';
+      return false;
+    }
+    btn.disabled=true; btnT.textContent='送信中...'; msg.style.display='none';
+    fetch(GAS_URL,{ method:'POST', headers:{'Content-Type':'application/x-www-form-urlencoded'}, body:new URLSearchParams(new FormData(form)).toString() })
+    .then(r=>r.json()).then(d=>{
+      if(d.result==='success'){
+        form.reset();
+        msg.style.cssText='display:block;background:#fbe9ea;color:#b00010;border:2px solid #f4a8ae;';
+        msg.innerHTML='✅ 送信ありがとうございます！<br><span style="font-size:13px;font-weight:500;">担当者より、最短当日〜翌営業日中にご連絡いたします。</span>';
+        btnT.textContent='送信完了';
+        setTimeout(()=>{ btn.disabled=false; btnT.textContent='メールで問い合わせる'; },5000);
+      } else throw new Error(d.message||'error');
+    }).catch(()=>{
+      msg.style.cssText='display:block;background:#fef2f2;color:#dc2626;border:2px solid #fca5a5;';
+      msg.innerHTML='⚠️ 送信に失敗しました。<br><span style="font-size:13px;font-weight:500;">お手数ですが、しばらくしてから再度お試しください。</span>';
+      btn.disabled=false; btnT.textContent='メールで問い合わせる';
+    });
+    return false;
+  }
+</script>
+</body>
+</html>

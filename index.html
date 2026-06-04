@@ -172,6 +172,7 @@
   .voice-search{ position:relative; overflow:hidden; border-radius:18px; color:#fff; padding:clamp(40px,6vw,76px); display:flex; align-items:center; min-height:300px; }
   /* ↓ 背景写真：実写真は background を url(assets/voice.jpg) center/cover; に差し替えるだけ（今はプレースホルダー） */
   .voice-search .vs-bg{ position:absolute; inset:0; z-index:0; background:repeating-linear-gradient(135deg,#55555c 0 20px,#48484f 20px 40px); }
+  .voice-search .vs-bg img{ width:100%; height:100%; object-fit:cover; display:block; }
   /* ↓ 黒の半透明フィルター（文字可読性のため左をやや濃く） */
   .voice-search .vs-overlay{ position:absolute; inset:0; z-index:1; background:linear-gradient(90deg, rgba(0,0,0,.64) 0%, rgba(0,0,0,.5) 55%, rgba(0,0,0,.4) 100%); }
   .voice-search .vs-note{ position:absolute; z-index:3; top:16px; right:16px; display:inline-flex; align-items:center; gap:8px; border:1px dashed rgba(255,255,255,.6); background:rgba(0,0,0,.35); color:#fff; padding:7px 14px; border-radius:999px; font-size:11px; font-weight:800; }
@@ -482,10 +483,8 @@
       <div class="layer reveal rd2"><div class="n">03</div><h3>車内アナウンス ＝ 耳</h3><p>音声でも認知をつくれます。手元のスマホを見ている乗客の耳に届けば、そのまま検索へ。</p></div>
     </div>
     <div class="voice-search reveal">
-      <!-- 差し替え: .vs-bg の background を写真に。今は背景プレースホルダー -->
-      <div class="vs-bg"></div>
+      <div class="vs-bg"><img src="assets/voice.jpg" alt=""></div>
       <div class="vs-overlay"></div>
-      <span class="vs-note">▶ ここに写真（ボックス全面）が入ります</span>
       <div class="vs-text">
         <h3>聞こえたら、直検索へ。</h3>
         <p>乗客の多くは、スマホを見ながら乗っています。耳から入った社名やサービスは、その場で検索につながりやすい。音声 × 検索を意識した動線まで設計できるのが、バス広告ならではの強みです。</p>
